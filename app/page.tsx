@@ -92,6 +92,63 @@ export default function Home() {
         </div>
       </section>
 
+{/* =========================
+          SHOP BY CATEGORY
+      ========================= */}
+<section id="categories" className="px-8 py-24 bg-white">
+  <div className="mx-auto max-w-7xl">
+
+    <div className="text-center">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+        Browse Categories
+      </p>
+      <h2 className="mt-3 text-4xl font-bold">
+        Shop By Category
+      </h2>
+
+      <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+        Explore our carefully selected collection across multiple categories.
+      </p>
+    </div>
+
+    <div className="mt-16 grid gap-8 md:grid-cols-4">
+
+      <div className="rounded-3xl bg-gray-50 p-8 text-center hover:shadow-lg transition">
+        <div className="text-5xl">🌍</div>
+        <h3 className="mt-4 text-xl font-bold">Travel</h3>
+        <p className="mt-2 text-gray-600">
+          Smart travel essentials and accessories.
+        </p>
+      </div>
+
+      <div className="rounded-3xl bg-gray-50 p-8 text-center hover:shadow-lg transition">
+        <div className="text-5xl">🏠</div>
+        <h3 className="mt-4 text-xl font-bold">Home & Kitchen</h3>
+        <p className="mt-2 text-gray-600">
+          Useful products for everyday living.
+        </p>
+      </div>
+
+      <div className="rounded-3xl bg-gray-50 p-8 text-center hover:shadow-lg transition">
+        <div className="text-5xl">🎁</div>
+        <h3 className="mt-4 text-xl font-bold">Gifts</h3>
+        <p className="mt-2 text-gray-600">
+          Thoughtful gifts for every occasion.
+        </p>
+      </div>
+
+      <div className="rounded-3xl bg-gray-50 p-8 text-center hover:shadow-lg transition">
+        <div className="text-5xl">📦</div>
+        <h3 className="mt-4 text-xl font-bold">Organizers</h3>
+        <p className="mt-2 text-gray-600">
+          Keep your home and travel items organized.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
       {/* =========================
           FEATURED PRODUCTS
       ========================= */}
