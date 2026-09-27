@@ -1,4 +1,43 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: any) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  const data = {
+    name: formData.get("name"),
+    mobile: formData.get("mobile"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+  };
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycby7KxI5olMxap2xO0XlndQT4a7NDvUSTJUc_eBVOppCFx-yttpkGab52N1XLnwHlwE5/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.success) {
+      setSuccess(true);
+e.target.reset();
+    }
+  } catch (error) {
+    alert("Error saving lead");
+  }
+};
+
   return (
     <main className="min-h-screen bg-white text-gray-900">
 
@@ -380,27 +419,84 @@ export default function Home() {
   </div>
 </section>
 
-{/* =========================
-          CONTACT SECTION
-      ========================= */}
+{/* CONTACT US */}
 <section id="contact" className="bg-gray-50 px-8 py-24">
-  <div className="mx-auto max-w-4xl text-center">
+  <div className="mx-auto max-w-4xl">
 
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
-      Contact Us
-    </p>
+    <div className="text-center">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+        Contact Us
+      </p>
 
-    <h2 className="mt-3 text-4xl font-bold">
-      Get In Touch
-    </h2>
+      <h2 className="mt-3 text-4xl font-bold">
+        Get In Touch
+      </h2>
 
-    <p className="mt-6 text-gray-600">
-      Email: hello@mywebworlds.com
-    </p>
+      <p className="mt-4 text-gray-600">
+        Have questions about our products? We'd love to hear from you.
+      </p>
+    </div>
 
-    <p className="mt-2 text-gray-600">
-      Phone: +91 98765 43210
-    </p>
+    <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+
+      <input
+      type="text"
+      name="name"
+        placeholder="Your Name"
+        className="w-full rounded-xl border p-4"
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        className="w-full rounded-xl border p-4"
+      />
+
+      <input
+        type="tel"
+        name="mobile"
+        placeholder="Your Phone Number"
+        className="w-full rounded-xl border p-4"
+      />
+
+      <textarea
+      name="message"
+        placeholder="Your Message"
+        rows={5}
+        className="w-full rounded-xl border p-4"
+      ></textarea>
+
+      <button
+        type="submit"
+        className="rounded-full bg-black px-8 py-3 text-white hover:bg-gray-800"
+      >
+        Send Message
+      </button>
+
+      {success && (
+  <p className="text-green-600 font-semibold">
+    ✓ Message Sent Successfully
+  </p>
+)}
+
+    </form>
+
+    <div className="mt-12 text-center space-y-2">
+
+      <p>
+        📱 WhatsApp: +91 9594568470
+      </p>
+
+      <p>
+        📸 Instagram: @mywebworlds
+      </p>
+
+      <p>
+        📧 Email: nikhilthakur653@gmail.com
+      </p>
+
+    </div>
 
   </div>
 </section>
@@ -423,6 +519,16 @@ export default function Home() {
         </div>
 
       </footer>
+
+      <a
+  href="https://instagram.com/mywebworlds"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-24 right-6 bg-pink-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-pink-700 transition"
+>
+  Instagram
+</a>
+
 <a
   href="https://wa.me/919594568470"
   target="_blank"
